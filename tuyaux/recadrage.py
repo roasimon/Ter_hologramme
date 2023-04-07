@@ -71,5 +71,3 @@ def resizeAllImages(im_dir: str, dst_dir: str):
         new_image = cv2.resize(img, dimensions, interpolation=cv2.INTER_LINEAR)
         cv2.imwrite(os.path.join(dst_dir, f"warped_{i}.png"), new_image)
 
-# 2 images binaires sur S et V et écart type
-# écart type sur la teinte
