@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-img = cv2.imread("test_div_video/image_200.jpg")
+img = cv2.imread("Fond\image_200.jpg")
 # Obtenir la taille de l'image d'origine
 
 height, width, channels = img.shape
