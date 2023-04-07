@@ -16,7 +16,15 @@ if not os.path.exists(output_dir):
 
 for img_file in img_files:
     img = cv2.imread(os.path.join(img_folder, img_file))
-    resized_img = cv2.resize(img, (800, 600))
+    # Obtenir la taille de l'image d'origine
+    height, width, channels = img.shape
+
+# Définir la nouvelle taille souhaitée
+    new_width = 640
+    new_height = int(new_width * height / width)
+
+# Redimensionner l'image tout en conservant sa configuration
+    resized_img = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_AREA)
     hsv_img = cv2.cvtColor(resized_img, cv2.COLOR_BGR2HSV)
   # Définir les valeurs minimales et maximales pour chaque canal
     h_min, s_min, v_min = 23, 15, 236
