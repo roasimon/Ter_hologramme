@@ -6,7 +6,7 @@ def nothing(x):
     pass
 
 # Load image
-img = cv2.imread('Binarisation\warped_images\warped_40.jpg')
+img = cv2.imread('Binarisation\warped_images\warped_15.jpg')
 # Obtenir la taille de l'image d'origine
 height, width, channels = img.shape
 

@@ -1,7 +1,7 @@
 import cv2
 
 # Charger l'image
-img = cv2.imread('warped_images\warped_0.jpg')
+img = cv2.imread('Binarisation\warped_images\warped_0.jpg')
 # Obtenir la taille de l'image d'origine
 height, width, channels = img.shape
 

@@ -18,8 +18,14 @@ for img_file in img_files:
     img = cv2.imread(os.path.join(img_folder, img_file))
     resized_img = cv2.resize(img, (800, 600))
     hsv_img = cv2.cvtColor(resized_img, cv2.COLOR_BGR2HSV)
-    v = hsv_img[:,:,2]
-    _, binary_img = cv2.threshold(v, 238, 255, cv2.THRESH_BINARY)
+  # Définir les valeurs minimales et maximales pour chaque canal
+    h_min, s_min, v_min = 23, 15, 236
+    h_max, s_max, v_max = 180, 255, 255
+   # Créer un masque binaire pour les pixels qui correspondent aux valeurs définies
+    mask = cv2.inRange(hsv_img, (h_min, s_min, v_min), (h_max, s_max, v_max))
+
+# Appliquer le masque à l'image originale pour obtenir l'image binaire
+    binary_img = cv2.bitwise_and(resized_img, resized_img, mask=mask)
   
     output_path = os.path.join(output_dir,img_file)
     cv2.imwrite(output_path, binary_img)
