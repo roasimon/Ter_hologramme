@@ -1,7 +1,7 @@
 import cv2
 
 # Ouvrir la vidéo
-video_capture = cv2.VideoCapture('pass.mp4')
+video_capture = cv2.VideoCapture('Fond\pass_test.mp4')
 
 # Initialiser le compteur d'images
 count = 0
@@ -20,7 +20,7 @@ while True:
 
     # Capturer une image toutes les 50 trames
     if count % frame_rate == 0:
-        cv2.imwrite(f'image_{count}.jpg', frame)
+        cv2.imwrite(f'Fond/test_div_video/image_{count}.jpg', frame)
 
     # Augmenter le compteur d'images
     count += 1
