@@ -27,7 +27,7 @@ for img_file in img_files:
     resized_img = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_AREA)
     hsv_img = cv2.cvtColor(resized_img, cv2.COLOR_BGR2HSV)
   # Définir les valeurs minimales et maximales pour chaque canal
-    h_min, s_min, v_min = 23, 15, 236
+    h_min, s_min, v_min = 30, 40, 224
     h_max, s_max, v_max = 180, 255, 255
    # Créer un masque binaire pour les pixels qui correspondent aux valeurs définies
     mask = cv2.inRange(hsv_img, (h_min, s_min, v_min), (h_max, s_max, v_max))
