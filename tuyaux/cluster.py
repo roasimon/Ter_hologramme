@@ -73,20 +73,18 @@ if __name__ == '__main__':
     data = np.concatenate([class_holo, class_non_holo])
 
     # Utiliser t-SNE pour transformer les données en 3 dimensions
-    tsne = TSNE(n_components=3, random_state=42)
+    tsne = TSNE(n_components=2, random_state=42)
     data_tsne = tsne.fit_transform(data)
 
     # Générer les labels pour chaque classe d'objets
     labels = np.hstack([np.zeros(800), np.ones(800)])
 
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
+    ax = fig.add_subplot(111)
 
-    ax.scatter(data_tsne[labels==0,0], data_tsne[labels==0,1], data_tsne[labels==0,2], c='blue', label='Classe holo')
-    ax.scatter(data_tsne[labels==1,0], data_tsne[labels==1,1], data_tsne[labels==1,2], c='red', label='Classe non holo')
-    ax.set_title('Evolution de la saturation et teinte globale')
+    plt.scatter(data_tsne[labels==0,0], data_tsne[labels==0,1], c='blue', label='Classe holo')
+    plt.scatter(data_tsne[labels==1,0], data_tsne[labels==1,1], c='red', label='Classe non holo')
+    ax.set_title('Evolution de la saturation et teinte 2D globale')
     ax.legend()
+    plt.savefig("Saturation_teinte_globale.png")
     plt.show()
-
-    with open('S_H.fig.pickle', 'wb') as f:
-        pickle.dump(fig, f)
