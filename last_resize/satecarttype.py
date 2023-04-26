@@ -24,8 +24,7 @@ def getListPixSat(im_dir: str) -> np.ndarray:
             for file in hsvs:
                 tuyau = file[kernel_x-3:kernel_x+4, kernel_y-3:kernel_y+4] # tuyau temporel 7x7
                 tuyau = tuyau.flatten()[1::3] # reduction des dimensions puis sélection des valeurs de saturations
-                if tuyau.size > 0:
-                     buffer_maxs_sat.append(np.max(tuyau))
+                buffer_maxs_sat.append(np.max(tuyau))
                 
             bin_img_sat[x][y] = np.std(buffer_maxs_sat)
             kernel_y += 1
@@ -36,7 +35,7 @@ def getListPixSat(im_dir: str) -> np.ndarray:
     return bin_img_sat
 
 
-im_dir = "resized_image"
+im_dir = "Ter_hologramme/last_resize/resized_image"
 binary_image = getListPixSat(im_dir)
 
 # Display the binary image

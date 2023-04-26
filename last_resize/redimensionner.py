@@ -17,7 +17,7 @@ pts1 = np.float32(points)
 
 # Définir les dimensions de l'image redimensionnée
 width, height = 700, 600
-
+# utiliser des pourcentages
 # Définir les points correspondants dans l'image redimensionnée
 pts2 = np.float32([[0,0],[width,0],[0,height],[width,height]])
 
